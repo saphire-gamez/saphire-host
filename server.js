@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Use the PORT environment variable
 
 // Set up storage for uploaded files
 const storage = multer.diskStorage({
@@ -35,4 +35,10 @@ app.post('/upload', upload.single('file'), (req, res) => {
   res.send({ link: fileLink });
 });
 
-// Serve u
+// Serve uploaded files statically
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Start the server and listen on the correct port
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

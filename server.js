@@ -18,8 +18,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Serve static files (HTML, CSS, JS)
-app.use(express.static('public'));
+// Serve static files (HTML, CSS, JS) from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve the index.html file at the root URL
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // File upload endpoint
 app.post('/upload', upload.single('file'), (req, res) => {
@@ -30,10 +35,4 @@ app.post('/upload', upload.single('file'), (req, res) => {
   res.send({ link: fileLink });
 });
 
-// Serve uploaded files statically
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// Serve u

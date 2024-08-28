@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saphire Host</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💎 Saphire Host 💎</h1>
+    
+    <!-- File Hosting Section -->
+    <section id="file-hosting">
+      <h2>File Hosting</h2>
+      <input type="file" id="fileInput">
+      <button onclick="uploadFile()">Upload File</button>
+      <p id="fileLink"></p>
+    </section>
+    
+    <!-- Paste Hosting Section -->
+    <section id="paste-hosting">
+      <h2>Paste Hosting</h2>
+      <textarea id="pasteInput" placeholder="Type your text here..."></textarea>
+      <button onclick="uploadPaste()">Upload Paste</button>
+      <p id="pasteLink"></p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

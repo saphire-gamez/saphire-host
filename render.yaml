@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: saphire-host
+    env: node
+    plan: free  # Choose the desired plan (free, starter, etc.)
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true  # Auto-deploy on push to the connected repository
